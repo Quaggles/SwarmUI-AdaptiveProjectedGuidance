@@ -2,6 +2,8 @@
 
 A [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI/) extension that adds parameters for MythicalChu's [ComfyUI-APG_ImYourCFGNow](https://github.com/MythicalChu/ComfyUI-APG_ImYourCFGNow) custom node to the generate tab. Retain the quality-boosting advantages of CFG while enabling the use of higher guidance scales without oversaturation.
 
+![image](https://github.com/user-attachments/assets/3f8f2793-efa8-404e-a6b5-141f594005de)
+
 ## Changelog
 <details>
   <summary>16 November 2024</summary>
