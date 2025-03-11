@@ -15,7 +15,11 @@ public class AdaptiveProjectedGuidanceExtension : Extension
     public T2IRegisteredParam<double> Momentum,
         AdaptiveMomentum,
         NormThreshold,
-        Eta;
+        Eta,
+        GuidanceSigmaStart,
+        GuidanceSigmaEnd;
+
+    public T2IRegisteredParam<bool> GuidanceLimiter;
 
     public override void OnInit()
     {
@@ -79,6 +83,44 @@ public class AdaptiveProjectedGuidanceExtension : Extension
             FeatureFlag: FeatureId,
             OrderPriority: orderCounter++
         ));
+        GuidanceLimiter = T2IParamTypes.Register<bool>(
+            new(
+                $"{Prefix}Guidance Limiter",
+                "Drops the cfg (also, APG's functions) outside the specified range (ideally at the early steps and the later ones) improving variability and combating oversaturation",
+                "false",
+                Group: paramGroup,
+                FeatureFlag: FeatureId,
+                OrderPriority: orderCounter++
+            )
+        );
+        GuidanceSigmaStart = T2IParamTypes.Register<double>(
+            new(
+                $"{Prefix}Guidance Sigma Start",
+                "",
+                "5.42",
+                Min: -1,
+                Max: 10000,
+                Step: 0.01,
+                ViewType: ParamViewType.SLIDER,
+                Group: paramGroup,
+                FeatureFlag: FeatureId,
+                OrderPriority: orderCounter++
+            )
+        );
+        GuidanceSigmaEnd = T2IParamTypes.Register<double>(
+            new(
+                $"{Prefix}Guidance Sigma End",
+                "",
+                "0.28",
+                Min: -1,
+                Max: 10000,
+                Step: 0.01,
+                ViewType: ParamViewType.SLIDER,
+                Group: paramGroup,
+                FeatureFlag: FeatureId,
+                OrderPriority: orderCounter++
+            )
+        );
         WorkflowGenerator.AddModelGenStep(g =>
         {
             // Required param
@@ -95,6 +137,9 @@ public class AdaptiveProjectedGuidanceExtension : Extension
                 ["adaptive_momentum"] = g.UserInput.Get(AdaptiveMomentum),
                 ["norm_threshold"] = g.UserInput.Get(NormThreshold),
                 ["eta"] = g.UserInput.Get(Eta),
+                ["guidance_sigma_start"] = g.UserInput.Get(GuidanceSigmaStart),
+                ["guidance_sigma_end"] = g.UserInput.Get(GuidanceSigmaEnd),
+                ["guidance_limiter"] = g.UserInput.Get(GuidanceLimiter),
                 ["print_data"] = false,
             });
             
