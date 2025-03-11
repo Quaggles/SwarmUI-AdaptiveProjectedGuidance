@@ -6,6 +6,12 @@ A [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI/) extension that adds pa
 
 ## Changelog
 <details>
+  <summary>11 February 2025</summary>
+
+* Added parameters for Guidance Limiter (Thanks to [derrian-distro](https://github.com/derrian-distro)), described in the APG repo as:
+> Added "Guidance Limiter" : https://arxiv.org/abs/2404.07724 It drops the cfg (also, APG's functions) outside the specified range (ideally at the early steps and the later ones) improving variability and combating oversaturation. Starting and ending parameters set as per the paper suggestion, but may need further tweaking depending on model and other conditions.
+</details>
+<details>
   <summary>16 November 2024</summary>
 
 * Initial Release
