@@ -83,6 +83,16 @@ public class AdaptiveProjectedGuidanceExtension : Extension
             FeatureFlag: FeatureId,
             OrderPriority: orderCounter++
         ));
+        GuidanceLimiter = T2IParamTypes.Register<bool>(
+            new(
+                $"{Prefix}Guidance Limiter",
+                "Drops the cfg (also, APG's functions) outside the specified range (ideally at the early steps and the later ones) improving variability and combating oversaturation",
+                "false",
+                Group: paramGroup,
+                FeatureFlag: FeatureId,
+                OrderPriority: orderCounter++
+            )
+        );
         GuidanceSigmaStart = T2IParamTypes.Register<double>(
             new(
                 $"{Prefix}Guidance Sigma Start",
@@ -106,16 +116,6 @@ public class AdaptiveProjectedGuidanceExtension : Extension
                 Max: 10000,
                 Step: 0.01,
                 ViewType: ParamViewType.SLIDER,
-                Group: paramGroup,
-                FeatureFlag: FeatureId,
-                OrderPriority: orderCounter++
-            )
-        );
-        GuidanceLimiter = T2IParamTypes.Register<bool>(
-            new(
-                $"{Prefix}Guidance Limiter",
-                "",
-                "false",
                 Group: paramGroup,
                 FeatureFlag: FeatureId,
                 OrderPriority: orderCounter++
