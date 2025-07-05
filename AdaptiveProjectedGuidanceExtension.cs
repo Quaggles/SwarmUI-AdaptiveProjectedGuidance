@@ -32,7 +32,8 @@ public class AdaptiveProjectedGuidanceExtension : Extension
         ComfyUIBackendExtension.NodeToFeatureMap["APG_ImYourCFGNow"] = FeatureId;
         
         // Add required custom node as installable feature
-        InstallableFeatures.RegisterInstallableFeature(new("APG_ImYourCFGNow", FeatureId, "https://github.com/MythicalChu/ComfyUI-APG_ImYourCFGNow", "MythicalChu", "This will install the APG_ImYourCFGNow ComfyUI node developed by MythicalChu.\nDo you wish to install?"));        
+        InstallableFeatures.RegisterInstallableFeature(new("APG_ImYourCFGNow", FeatureId, "https://github.com/MythicalChu/ComfyUI-APG_ImYourCFGNow", "MythicalChu", "This will install the APG_ImYourCFGNow ComfyUI node developed by MythicalChu.\nDo you wish to install?"));
+        ComfyUISelfStartBackend.ComfyNodeGitPins["ComfyUI-APG_ImYourCFGNow"] = "e8e06886c6e837484c7bf32658b04e0de1e17d5f";
         
         // Prevents install button from being shown during backend load if it looks like it was installed
         // it will appear if the backend loads and the backend reports it's not installed
