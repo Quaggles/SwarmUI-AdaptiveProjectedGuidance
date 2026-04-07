@@ -144,7 +144,6 @@ public class AdaptiveProjectedGuidanceExtension : Extension
                 ["print_data"] = false,
             });
             
-            g.FinalModel = [nodeId, 0];
             g.LoadingModel = [nodeId, 0];
         }, -13);
     }
