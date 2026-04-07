@@ -6,6 +6,11 @@ A [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI/) extension that adds pa
 
 ## Changelog
 <details>
+  <summary>08 April 2026</summary>
+
+* Removed obsolete code
+</details>
+<details>
   <summary>11 March 2025</summary>
 
 * Added parameters for Guidance Limiter (Thanks to [derrian-distro](https://github.com/derrian-distro)), described in the APG repo as:
